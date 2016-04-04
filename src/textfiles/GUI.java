@@ -8,7 +8,6 @@ import static textfiles.FileData.searchWord;
 import static textfiles.FileData.searchWord2;
 import static textfiles.FileData.searchWordlist;
 import static textfiles.PrefixTree.createTree;
-import static textfiles.FileData.readtranslate;
 import static textfiles.PrefixTree.insertWord;
 import static textfiles.PrefixTree.insertWord2;
 import static textfiles.PrefixTree.tWord;
@@ -23,6 +22,7 @@ import static textfiles.PrefixTree.tWord;
  *
  * @author Administrator
  */
+
 public class GUI extends javax.swing.JFrame {
     static String vocap;
     String words;

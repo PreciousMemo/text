@@ -2,7 +2,6 @@ package textfiles;
 import java.io.IOException;
 import static textfiles.PrefixTree.find;
 import java.util.HashMap;
-
 public class FileData {
     
     public static String searchWord(String vocap,TrieNode tree)throws IOException
@@ -61,15 +60,6 @@ public class FileData {
             m=0;
         }
        return compword;
-    }
-    
-    public static String[] readtranslate()throws IOException{
-        
-        String file_name = "C:/Users/Administrator/Desktop/translate.txt";
-        ReadFile file = new ReadFile(file_name);
-        String[] aryLines = file.OpenFile();  
-        return aryLines;
-        
     }
     
     
