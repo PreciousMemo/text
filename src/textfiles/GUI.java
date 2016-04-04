@@ -40,43 +40,6 @@ public class GUI extends javax.swing.JFrame {
      * @throws java.io.IOException
      */
     public GUI() throws IOException {
-//        this.aryLines = file.OpenFile();
-//        String[] ary = new String[700000];
-//        String[] aryssss = new String[500000];
-//        int j=0;
-//        for(int i=0;i < aryLines.length;i++){
-//           ary[i]=tWord(aryLines[i]);
-//           if(!"99".equals(ary[i])){
-//               aryssss[j]=ary[i];
-//               j++;
-//           }             
-//        }
-//        WriteFile data = new WriteFile( "C:/Users/Administrator/Desktop/builing2/vocap&tran.txt" , true );
-//        for(int i=0;i <= j-1;i++){
-//              if(aryssss[i].equals(aryssss[i+2])){
-//                  aryssss[i+3]=aryssss[i+3]+"|"+aryssss[i+1];
-//                  i++;
-//              }else{
-//                data.WriteToFile( aryssss[i] );   
-//              }
-//           
-//        }   
-
-//        this.aryLines = file.OpenFile();
-//        WriteFile data = new WriteFile( "C:/Users/Administrator/Desktop/builing2/vocap&tran2.txt" , true );
-//        for(int i=0;i < aryLines.length;i++){
-//           if("\\n".equals(aryLines[i])){
-//           }else{
-//           data.WriteToFile( aryLines[i] );
-//           }
-//        }
-              
-                   
-              
-           
-        
-
-
         this.aryLines = file.OpenFile();
       
         vocap = "";

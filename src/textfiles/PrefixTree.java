@@ -48,20 +48,7 @@ public class PrefixTree
             }else{
                 
               ss = ss+letters[i];
-//              if (curNode.links[letters[i]-offset]==null){
-//                  if (i+1 == l){
-//                      curNode.links[letters[i]-offset] = new TrieNode(letters[i],true,tran);
-//                      balance.put(ss, tran);
-//                  }else{
-//                      
-//                      //System.out.println(ss);
-//                  }              
-//              }else{
-//                  if (i+1 == l){
-//                  curNode.links[letters[i]-offset] = new TrieNode(letters[i],true,tran);
-//                  balance.put(ss, tran);
-//                  }
-//              }
+
               
               if (i+1 == l){
                   curNode.links[letters[i]-offset] = new TrieNode(letters[i],true,tran);
@@ -70,7 +57,7 @@ public class PrefixTree
                    if (curNode.links[letters[i]-offset]==null){
                   curNode.links[letters[i]-offset] = new TrieNode(letters[i],false,null);
                   balance.put(ss, "The word was NOT found");
-                  }
+                   }
               }
               
               
