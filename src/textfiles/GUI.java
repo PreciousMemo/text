@@ -34,6 +34,10 @@ public class GUI extends javax.swing.JFrame {
     ReadFile file = new ReadFile(file_name);
     String[] aryLines;
     static HashMap balance = new HashMap();
+    long usedMemoryBeforetire;
+    long usedMemoryAftertire;
+    long usedMemoryBeforehash;
+    long usedMemoryAfterhash;
 //   String[] tran;
     /**
      * Creates new form GUI
@@ -41,24 +45,34 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() throws IOException {
         this.aryLines = file.OpenFile();
-      
         vocap = "";
+        Runtime runtime = Runtime.getRuntime();
+        usedMemoryBeforetire = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("Used Memory before" + usedMemoryBeforetire);
+        
         for (int i=1; i < aryLines.length; i++ ) {
             insertWord2(tree2, aryLines[i],aryLines[i+1]);
             i++;
         }
+        usedMemoryAftertire = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("Memory increased:" + (usedMemoryAftertire-usedMemoryBeforetire));
+        String MemT = ""+((usedMemoryAftertire-usedMemoryBeforetire)/(1024*1024));
+      
         
+        usedMemoryBeforehash = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("Used Memory before" + usedMemoryBeforehash);
         for (int i=1; i < aryLines.length; i++ ) {
-            
             insertWord(tree, aryLines[i],aryLines[i+1],balance);
             i++;
         }
-         double bh = balance.size();
-         System.out.println(bh);
+        usedMemoryAfterhash = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("Memory increased:" + (usedMemoryAfterhash-usedMemoryBeforehash));
+        String MemTH = ""+(((usedMemoryAftertire-usedMemoryBeforetire)+(usedMemoryAfterhash-usedMemoryBeforehash))/(1024*1024));
+        
         System.out.println("fin");
         initComponents();
-
-           
+        Memtirehash.setText(MemTH);
+        Memtire.setText(MemT);       
             //setVisible(true);
     }
     
@@ -89,6 +103,13 @@ public class GUI extends javax.swing.JFrame {
         addvocap = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        Memtirehash = new javax.swing.JTextField();
+        Memtire = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -154,7 +175,7 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(20, 260, 100, 14);
 
-        jLabel5.setText("ns/10");
+        jLabel5.setText("10 s");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(260, 280, 40, 30);
 
@@ -192,13 +213,44 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel4.setText("tire");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 320, 110, 14);
+        jLabel4.setBounds(20, 380, 110, 14);
 
         jLabel6.setText("tire+hash");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(140, 320, 110, 14);
+        jLabel6.setBounds(140, 380, 110, 14);
 
-        setBounds(0, 0, 492, 384);
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jLabel7.setText("-8");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(270, 280, 20, 10);
+
+        jLabel8.setText("Memory ที่ใช้");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(20, 330, 100, 14);
+        getContentPane().add(Memtirehash);
+        Memtirehash.setBounds(140, 350, 110, 30);
+
+        Memtire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MemtireActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Memtire);
+        Memtire.setBounds(20, 350, 110, 30);
+
+        jLabel9.setText("tire");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(20, 310, 110, 14);
+
+        jLabel10.setText("tire+hash");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(140, 310, 110, 14);
+
+        jLabel11.setText("MB");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(260, 350, 50, 30);
+
+        setBounds(0, 0, 492, 442);
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchvocapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchvocapActionPerformed
@@ -292,6 +344,10 @@ public class GUI extends javax.swing.JFrame {
         form.setVisible(true);
     }//GEN-LAST:event_addvocapMouseClicked
 
+    private void MemtireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MemtireActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MemtireActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -332,13 +388,20 @@ public class GUI extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Memtire;
+    private javax.swing.JTextField Memtirehash;
     private javax.swing.JButton addvocap;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
