@@ -1,5 +1,4 @@
 package textfiles;
-
 import java.util.HashMap;
 
 class TrieNode
