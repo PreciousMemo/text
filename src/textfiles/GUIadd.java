@@ -27,6 +27,8 @@ public class GUIadd extends javax.swing.JFrame {
     /**
      * Creates new form GUIadd
      */
+    static String[] vo = new String[balance.size()];
+    static String[] tr = new String[balance.size()];
     String vocap;
     String word;
     public GUIadd() throws IOException {
@@ -152,28 +154,10 @@ public class GUIadd extends javax.swing.JFrame {
 
     private void savetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savetMouseClicked
         // TODO add your handling code here:
-        String[] vo = new String[balance.size()];
-        String[] tr = new String[balance.size()];
+        
         vo = (String[]) balance.keySet().toArray(vo);
         tr = (String[]) balance.values().toArray(tr);
-        WriteFile data = new WriteFile( "C:/Users/Administrator/Desktop/builing2/vocap&tran2.txt" , false );
-        try {
-            data.WriteToFile("");
-        } catch (IOException ex) {
-            Logger.getLogger(GUIadd.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         data = new WriteFile( "C:/Users/Administrator/Desktop/builing2/vocap&tran2.txt" , true );
-        for(int i=0;i < balance.size();i++){
-           if("The word was NOT found".equals(tr[i])){
-           }else{
-               try {
-                   data.WriteToFile(vo[i]);
-                   data.WriteToFile(tr[i]);
-               } catch (IOException ex) {
-                   Logger.getLogger(GUIadd.class.getName()).log(Level.SEVERE, null, ex);
-               }
-           }
-        }
+        
         setVisible(false);
     }//GEN-LAST:event_savetMouseClicked
 

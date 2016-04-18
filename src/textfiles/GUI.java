@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 import static textfiles.FileData.searchWord;
 import static textfiles.FileData.searchWord2;
 import static textfiles.FileData.searchWordlist;
+import static textfiles.GUIadd.tr;
+import static textfiles.GUIadd.vo;
 import static textfiles.PrefixTree.createTree;
 import static textfiles.PrefixTree.insertWord;
 import static textfiles.PrefixTree.insertWord2;
@@ -110,6 +112,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -250,6 +253,20 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().add(jLabel11);
         jLabel11.setBounds(260, 350, 50, 30);
 
+        jButton1.setText("เสร็จสิ้น");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(330, 350, 90, 30);
+
         setBounds(0, 0, 492, 442);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -348,6 +365,33 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MemtireActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        WriteFile data = new WriteFile( "C:/Users/Administrator/Desktop/builing2/vocap&tran2.txt" , false );
+        try {
+            data.WriteToFile("");
+        } catch (IOException ex) {
+            Logger.getLogger(GUIadd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         data = new WriteFile( "C:/Users/Administrator/Desktop/builing2/vocap&tran2.txt" , true );
+        for(int i=0;i < balance.size();i++){
+           if("The word was NOT found".equals(tr[i])){
+           }else{
+               try {
+                   data.WriteToFile(vo[i]);
+                   data.WriteToFile(tr[i]);
+               } catch (IOException ex) {
+                   Logger.getLogger(GUIadd.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           }
+        }
+        System.exit(0);
+    }//GEN-LAST:event_jButton1MouseClicked
+   
     /**
      * @param args the command line arguments
      */
@@ -391,6 +435,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField Memtire;
     private javax.swing.JTextField Memtirehash;
     private javax.swing.JButton addvocap;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
