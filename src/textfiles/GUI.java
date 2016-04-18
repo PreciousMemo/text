@@ -371,6 +371,8 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
+        vo = (String[]) balance.keySet().toArray(vo);
+        tr = (String[]) balance.values().toArray(tr);
         WriteFile data = new WriteFile( "C:/Users/Administrator/Desktop/builing2/vocap&tran2.txt" , false );
         try {
             data.WriteToFile("");
