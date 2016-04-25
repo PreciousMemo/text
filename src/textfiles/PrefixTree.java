@@ -19,13 +19,13 @@ class TrieNode
 public class PrefixTree
 {
     
-    static TrieNode createTree()
+    public static TrieNode createTree()
     {
         return(new TrieNode('\0', false,null));
     }
     
     static void insertWord(TrieNode root, String word,String tran,HashMap balance)
-    {  
+    {   
         int offset = 32;
         int l = word.length();
         char[] letters = word.toCharArray();
