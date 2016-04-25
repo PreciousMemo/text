@@ -59,7 +59,16 @@ public class FileData {
             }
             m=0;
         }
-       return compword;
+        String[] compwords = new String[g];
+        for(i=0;i<g;i++){
+            if(compword[i] == null){
+                break;
+            }else{
+            compwords[i] = compword[i];
+            }
+        }
+        
+       return compwords;
     }
     
     

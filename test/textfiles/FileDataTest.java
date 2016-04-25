@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -69,14 +70,14 @@ public class FileDataTest {
      */
     @Test
     public void testSearchWord() throws Exception {
-        System.out.println("searchWord");
+       // System.out.println("searchWord");
         String vocap = "sasda";
        // TrieNode tree = null;
         String expResult = "The word was NOT found";
         String result = FileData.searchWord(vocap, tree);
         assertEquals(expResult, result);
-        System.out.println("sasda    =   "+result);
-        System.out.println("####################################################");
+       // System.out.println("sasda    =   "+result);
+       //System.out.println("####################################################");
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -86,21 +87,21 @@ public class FileDataTest {
      */
     @Test
     public void testSearchWord2() throws Exception {
-        System.out.println("searchWord2");
+       // System.out.println("searchWord2");
         String vocap = "";
         //HashMap balance = null;
         String expResult = "The word was NOT found";
         String result = FileData.searchWord2(vocap, balance);
         assertEquals(expResult, result);
-        System.out.println("null    =   "+result);
+       // System.out.println("null    =   "+result);
         vocap = "ass";
         //HashMap balance = null;
         expResult = "The word was NOT found";
         result = FileData.searchWord2(vocap, balance);
         assertEquals(expResult, result);
         assertEquals(expResult, result);
-        System.out.println("ass    =   "+result);
-        System.out.println("####################################################");
+       // System.out.println("ass    =   "+result);
+       // System.out.println("####################################################");
         // TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
     }
@@ -115,10 +116,10 @@ public class FileDataTest {
         //String[] aryLines = null;
         //String[] expResult = null;--
         String[] result = FileData.searchWordlist(vocap, aryLines);
-        for(int j=0; j < 10;j++){
+        for(int j=0; j < result.length;j++){
             System.out.println(result[j]);
         }
-        System.out.println("####################################################");
+        //System.out.println("####################################################");
         //assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");

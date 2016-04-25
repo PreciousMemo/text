@@ -121,7 +121,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jList1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("DICTIONARY");
         getContentPane().setLayout(null);
 
@@ -139,10 +139,12 @@ public class GUI extends javax.swing.JFrame {
         searchvocap.setBounds(20, 30, 240, 30);
 
         vocaplist.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "", "", "", "", "" };
+            String[] strings = {""};
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        vocaplist.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        vocaplist.setVisibleRowCount(0);
         vocaplist.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 vocaplistMouseClicked(evt);
@@ -153,7 +155,7 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(290, 30, 170, 220);
 
-        tranbox.setColumns(20);
+        tranbox.setColumns(10);
         tranbox.setRows(5);
         tranbox.setTabSize(1);
         tranbox.addKeyListener(new java.awt.event.KeyAdapter() {
