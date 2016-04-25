@@ -40,8 +40,8 @@ public class Demo8 extends JFrame
     // Create scene with default viewport and world extent settings
     scene_ = new GScene (window, "Scene");
 
-    double w0[] = {0.0,    12000.0, 0.0};
-    double w1[] = {12000.0, 12000.0, 0.0};
+    double w0[] = {0.0,    1200.0, 0.0};
+    double w1[] = {1200.0, 1200.0, 0.0};
     double w2[] = {0.0,       0.0, 0.0};    
     scene_.setWorldExtent (w0, w1, w2);
 
@@ -52,30 +52,30 @@ public class Demo8 extends JFrame
     scene_.setStyle (style);
     
     
-    GObject object = new TestObject ("",scene_ , 6000.0, 100.0); 
+    GObject object = new TestObject ("",scene_ , 500.0, 100.0); 
     String file_name = "C:/Users/Administrator/Desktop/builing2/vocap&tran2.txt";
     ReadFile file = new ReadFile(file_name);
     TrieNode tree2 = createTree();
     //String[] aryLines = file.OpenFile();
-    String[] aryLines = {"a","b","c"};
+    String[] aryLines = {"ab","ba","ca"};
     for (int i=0; i < aryLines.length; i++ ) {
             insertnode(tree2, aryLines[i],object);
         }
     
     pack();
-    setSize (new Dimension (12000, 12000));
+    setSize (new Dimension (500, 500));
     setVisible (true);
 
     window.startInteraction (this);
   }
 
 public void insertnode(TrieNode root, String word,GObject object)
-    {   GObject objects  = new TestObject ("",object, 6000.0, 100.0);
+    {   GObject objects  = new TestObject ("",object, 500.0, 50.0);
         int offset = 32;
         int l = word.length();
         char[] letters = word.toCharArray();
-        int x=80;
-        int y=1000;
+        int x=1;
+        int y=300;
         String tran = "";
         TrieNode curNode = root;
         String ss = "";
@@ -100,18 +100,19 @@ public void insertnode(TrieNode root, String word,GObject object)
                   }
                   GObject objectn  = new TestObject (""+letters[i],objects,(x)*((letters[i]-offset)), y);
                   objects = objectn;
-                  x = x;
-                  y=1000*l;
+                  x = x+5;
+                  y=y+(i*200);
               }else{
                   if (i+1 == l){
                   curNode.links[letters[i]-offset] = new TrieNode(letters[i],true,tran);
                   GObject objectn  = new TestObject (""+letters[i],objects,(x)*(letters[i]-offset), y);
                   objects = objectn;
-                  x = x;
-                  y=l*1000;
+                  x = x+5;
+                  y=y+(i*200);
                   }
               }
               curNode = curNode.links[letters[i]-offset];
+              
             }
         }
     }
